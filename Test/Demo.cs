@@ -10,33 +10,41 @@ namespace Test
     {
         public static void Main()
         {
-
-
-
-
-
-            HTMLDivElement myDiv = new HTMLDivElement() { Id = "demodiv" };
-            myDiv.Resizable();
-            myDiv.Draggable();
-            Document.Body.AppendChild(myDiv);
-
-
-
-            HTMLInputElement autocompleteBox = new HTMLInputElement();
-            autocompleteBox.AutocompleteInput(new string[] { "Rafael", "Denise", "Axel", "Muttern" });
-            myDiv.AppendChild(autocompleteBox);
-
-            HTMLInputElement datebox = new HTMLInputElement();
-            datebox.Datepicker();
-            myDiv.AppendChild(datebox);
-
-            HTMLButtonElement button = new HTMLButtonElement() { TextContent = "bounce" };
+            HTMLButtonElement button = new HTMLButtonElement() { TextContent = "Menu" };
             button.Button();
-            button.OnClick = (ev) => 
-            {
-                myDiv.Effect(Bridge.jQueryUI.Effects.Enums.EffectTypes.Explode);
-            };
-            myDiv.AppendChild(button);
+            button.OnClick += (ev) => { ShowMenu(); };
+
+            Document.Body.AppendChild(button);
+        }
+
+
+        private static void ShowMenu()
+        {
+            HTMLDivElement myDiv = new HTMLDivElement();
+            myDiv.DialogOpen(new DialogParameterCollection() { Title = "Menu" , Position = Bridge.jQueryUI.Widgets.Enums.WindowPosition.BottomRight});
+
+            HTMLButtonElement button1 = new HTMLButtonElement() { TextContent = "jQueryUI Demo" };
+            button1.Button();
+            button1.OnClick += (ev) => ShowDemo();
+
+            myDiv.AppendChild(button1);
+        }
+
+
+        private static void ShowDemo()
+        {
+            HTMLDivElement contendElement = new HTMLDivElement();
+            contendElement.AppendChild(new HTMLParagraphElement() { TextContent = "Autocomplete" });
+            var autocmpl = new HTMLInputElement();
+            autocmpl.AutocompleteInput( new string[] { "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme" } );
+            contendElement.AppendChild(autocmpl);
+
+            contendElement.AppendChild(new HTMLParagraphElement() { TextContent = "Buttons" });
+            var btn = new HTMLButtonElement() { TextContent = "Button" };
+            btn.Button();
+            contendElement.AppendChild(btn);
+
+            contendElement.DialogOpen();
         }
     }
 }

@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bridge\css\demo.css" />
+    <Content Include="Bridge\img\darkwoodback.jpg" />
     <Content Include="Bridge\js\images\ui-icons_444444_256x240.png">
       <CustomToolNamespace>js/images</CustomToolNamespace>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

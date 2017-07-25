@@ -24,6 +24,11 @@
 
         public ResizeablePrameterCollection()
         {
+            var test = new Html5.HTMLDivElement()
+            {
+
+            };
+            
             Animate = false;
             AnimateDuration = Enums.AnimationSpeedFast;
             AnimateEasing = Enums.Easing.Swing;
@@ -35,6 +40,7 @@
             MaxWidht = -1;
             MinWidth = -1;
             MinHeight = -1;
+
         }
     }
 }

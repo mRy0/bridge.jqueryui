@@ -1,4 +1,8 @@
-﻿#demodiv
+﻿body{
+    background-image: url(../img/darkwoodback.jpg);
+}
+
+#demodiv
 {
     border: 1px solid red;
     width: 200px;

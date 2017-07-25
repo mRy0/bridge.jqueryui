@@ -7,32 +7,62 @@ Bridge.assembly("Test", function ($asm, globals) {
     "use strict";
 
     Bridge.define("Test.Demo", {
+        statics: {
+            showMenu: function () {
+                var myDiv = document.createElement('div');
+                Bridge.jQueryUI.Widgets.Extensions.dialogOpen$1(myDiv, Bridge.merge(new Bridge.jQueryUI.Widgets.DialogParameterCollection(), {
+                    setTitle: "Menu",
+                    setPosition: Bridge.jQueryUI.Widgets.Enums.WindowPosition.BottomRight
+                } ));
+
+                var button1 = Bridge.merge(document.createElement('button'), {
+                    textContent: "jQueryUI Demo"
+                } );
+                Bridge.jQueryUI.Widgets.Extensions.button(button1);
+                button1.onclick = Bridge.fn.combine(button1.onclick, $asm.$.Test.Demo.f1);
+
+                myDiv.appendChild(button1);
+            },
+            showDemo: function () {
+                var contendElement = document.createElement('div');
+                contendElement.appendChild(Bridge.merge(document.createElement('p'), {
+                    textContent: "Autocomplete"
+                } ));
+                var autocmpl = document.createElement('input');
+                Bridge.jQueryUI.Widgets.Extensions.autocompleteInput(autocmpl, System.Array.init(["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"], String));
+                contendElement.appendChild(autocmpl);
+
+                contendElement.appendChild(Bridge.merge(document.createElement('p'), {
+                    textContent: "Buttons"
+                } ));
+                var btn = Bridge.merge(document.createElement('button'), {
+                    textContent: "Button"
+                } );
+                Bridge.jQueryUI.Widgets.Extensions.button(btn);
+                contendElement.appendChild(btn);
+
+                Bridge.jQueryUI.Widgets.Extensions.dialogOpen(contendElement);
+            }
+        },
         $main: function () {
-            var myDiv = Bridge.merge(document.createElement('div'), {
-                id: "demodiv"
-            } );
-            Bridge.jQueryUI.Interactions.Extensions.resizable(myDiv);
-            Bridge.jQueryUI.Interactions.Extensions.draggable(myDiv);
-            document.body.appendChild(myDiv);
-
-
-
-            var autocompleteBox = document.createElement('input');
-            Bridge.jQueryUI.Widgets.Extensions.autocompleteInput(autocompleteBox, System.Array.init(["Rafael", "Denise", "Axel", "Muttern"], String));
-            myDiv.appendChild(autocompleteBox);
-
-            var datebox = document.createElement('input');
-            Bridge.jQueryUI.Widgets.Extensions.datepicker(datebox);
-            myDiv.appendChild(datebox);
-
             var button = Bridge.merge(document.createElement('button'), {
-                textContent: "bounce"
+                textContent: "Menu"
             } );
             Bridge.jQueryUI.Widgets.Extensions.button(button);
-            button.onclick = function (ev) {
-                Bridge.jQueryUI.Effects.Extensions.effect(myDiv, Bridge.jQueryUI.Effects.Enums.EffectTypes.Explode);
-            };
-            myDiv.appendChild(button);
+            button.onclick = Bridge.fn.combine(button.onclick, $asm.$.Test.Demo.f2);
+
+            document.body.appendChild(button);
+        }
+    });
+
+    Bridge.ns("Test.Demo", $asm.$);
+
+    Bridge.apply($asm.$.Test.Demo, {
+        f1: function (ev) {
+            Test.Demo.showDemo();
+        },
+        f2: function (ev) {
+            Test.Demo.showMenu();
         }
     });
 });

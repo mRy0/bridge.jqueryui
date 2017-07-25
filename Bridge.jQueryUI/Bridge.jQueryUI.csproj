@@ -52,16 +52,21 @@
     <Compile Include="Effects\EffectPrameter.cs" />
     <Compile Include="Effects\Enums.cs" />
     <Compile Include="Effects\Extensions.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="Interactions\CursorPostition.cs" />
     <Compile Include="Interactions\DraggableParameterCollection.cs" />
     <Compile Include="Interactions\Enums.cs" />
     <Compile Include="Interactions\Extensions.cs" />
     <Compile Include="ExternalCalls.cs" />
+    <Compile Include="Interactions\Grid.cs" />
     <Compile Include="Interactions\ResizableParameterCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Statics.cs" />
     <Compile Include="Widgets\AutocompleteTextbox.cs" />
     <Compile Include="Widgets\AutoCompleteTextboxParameter.cs" />
     <Compile Include="Widgets\DatepickerParameter.cs" />
+    <Compile Include="Widgets\DialogParameterCollection.cs" />
+    <Compile Include="Widgets\Enums.cs" />
     <Compile Include="Widgets\Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
