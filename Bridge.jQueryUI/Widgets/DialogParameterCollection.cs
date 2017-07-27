@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Bridge.jQueryUI.Widgets
 {
+    [ObjectLiteral]
     public class DialogParameterCollection
     {
         public Html5.Node AppendTo { set; get; }
         public bool AutoOpen { set; get; }
-        //public object Buttons { set; get; }
+        public DialogButton[] Buttons { set; get; }
         public string Classes { set; get; }
         public bool CloseOnEscape { set; get; }
         public string CloseText { set; get; }
@@ -23,7 +24,7 @@ namespace Bridge.jQueryUI.Widgets
         public int MinHeight { set; get; }
         public int MinWidth { set; get; }
         public bool Modal { set; get; }
-        public Enums.WindowPosition Position { set; get; }
+        public Position Position { set; get; }
         public bool Resizable { set; get; }
         //public object Show { set; get; }
         public string Title { set; get; }
@@ -34,7 +35,7 @@ namespace Bridge.jQueryUI.Widgets
         {
             AppendTo = null;
             AutoOpen = true;
-            //Buttons = true;
+            Buttons = null;
             Classes = "";
             CloseOnEscape = true;
             CloseText = "close";
@@ -47,7 +48,7 @@ namespace Bridge.jQueryUI.Widgets
             MinHeight = -1;
             MinWidth = -1;
             Modal = false;
-            Position = Enums.WindowPosition.Default;
+            Position = null;
             Resizable = true;
             //Show = null;
             Title = null;

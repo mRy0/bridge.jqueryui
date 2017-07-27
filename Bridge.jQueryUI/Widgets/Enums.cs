@@ -10,16 +10,40 @@ namespace Bridge.jQueryUI.Widgets
     {
         public enum WindowPosition
         {
+            [Name("center")]
             Default = 0,
+            [Name("left top")]
             TopLeft =1,
+            [Name("top")]
             Top =2,
+            [Name("right top")]
             TopRight =3,
-            CenterLeft =4,
+            [Name("left")]
+            Left =4,
+            [Name("center")]
             Center = 5,
-            CenterRight = 6,
+            [Name("right")]
+            Right = 6,
+            [Name("left bottom")]
             BottomLeft = 7,
+            [Name("bottom")]
             Bottom =8,
+            [Name("right")]
             BottomRight = 9
         };
+        public enum Collision
+        {
+            [Name("flip")]
+            Flip = 0,
+            [Name("fit")]
+            Fit = 1,
+            [Name("fit flip")]
+            FitFlip = 2,
+            [Name("fit none")]
+            FitNone = 3,
+
+        }
+
+        
     }
 }

@@ -10,11 +10,10 @@ Bridge.assembly("Test", function ($asm, globals) {
         statics: {
             showMenu: function () {
                 var myDiv = document.createElement('div');
-                Bridge.jQueryUI.Widgets.Extensions.dialogOpen$1(myDiv, Bridge.merge(new Bridge.jQueryUI.Widgets.DialogParameterCollection(), {
-                    setTitle: "Menu",
-                    setPosition: Bridge.jQueryUI.Widgets.Enums.WindowPosition.BottomRight
-                } ));
-
+                Bridge.jQueryUI.Widgets.Extensions.dialog$1(myDiv, Bridge.jQueryUI.Widgets.DialogParameterCollection.ctor({ title: "Menu", position: Bridge.merge(new Bridge.jQueryUI.Widgets.Position(), {
+                    setMy: Bridge.jQueryUI.Widgets.Enums.WindowPosition.left,
+                    setAt: Bridge.jQueryUI.Widgets.Enums.WindowPosition.left
+                } ), height: 600 }));
                 var button1 = Bridge.merge(document.createElement('button'), {
                     textContent: "jQueryUI Demo"
                 } );
@@ -41,7 +40,9 @@ Bridge.assembly("Test", function ($asm, globals) {
                 Bridge.jQueryUI.Widgets.Extensions.button(btn);
                 contendElement.appendChild(btn);
 
-                Bridge.jQueryUI.Widgets.Extensions.dialogOpen(contendElement);
+                Bridge.jQueryUI.Widgets.Extensions.dialog$1(contendElement, Bridge.jQueryUI.Widgets.DialogParameterCollection.ctor({ buttons: System.Array.init([Bridge.jQueryUI.Widgets.DialogButton.ctor({ click: function () {
+                    Bridge.jQueryUI.Widgets.Extensions.dialogClose(contendElement);
+                }, text: "Close" })], Bridge.jQueryUI.Widgets.DialogButton) }));
             }
         },
         $main: function () {

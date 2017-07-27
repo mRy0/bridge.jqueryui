@@ -85,6 +85,7 @@
       <CustomToolNamespace>js/images</CustomToolNamespace>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Bridge\js\jquery-3.1.1.js" />
     <Content Include="Bridge\js\jquery-3.1.1.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -118,6 +119,7 @@
     </Content>
     <Content Include="Bridge\js\test.js" />
     <Content Include="Bridge\output\readme.txt" />
+    <Content Include="Bridge\www\demo.min.html" />
     <Content Include="Bridge\www\demo.html" />
     <Content Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />

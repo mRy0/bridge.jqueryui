@@ -335,68 +335,39 @@ Bridge.assembly("Bridge.jQueryUI", function ($asm, globals) {
         $literal: true
     });
 
+    Bridge.define("Bridge.jQueryUI.Widgets.DialogButton", {
+        $literal: true
+    });
+
     Bridge.define("Bridge.jQueryUI.Widgets.DialogParameterCollection", {
-        config: {
-            properties: {
-                AppendTo: null,
-                AutoOpen: false,
-                Classes: null,
-                CloseOnEscape: false,
-                CloseText: null,
-                DialogClass: null,
-                Draggable: false,
-                Height: 0,
-                MaxHeight: 0,
-                MaxWidht: 0,
-                MinHeight: 0,
-                MinWidth: 0,
-                Modal: false,
-                Position: 0,
-                Resizable: false,
-                Title: null,
-                Width: 0
-            }
-        },
-        ctor: function () {
-            this.$initialize();
-            this.setAppendTo(null);
-            this.setAutoOpen(true);
-            //Buttons = true;
-            this.setClasses("");
-            this.setCloseOnEscape(true);
-            this.setCloseText("close");
-            this.setDialogClass("");
-            this.setDraggable(true);
-            this.setHeight(-1);
-            //Hide = null;
-            this.setMaxHeight(-1);
-            this.setMaxWidht(-1);
-            this.setMinHeight(-1);
-            this.setMinWidth(-1);
-            this.setModal(false);
-            this.setPosition(Bridge.jQueryUI.Widgets.Enums.WindowPosition.Default);
-            this.setResizable(true);
-            //Show = null;
-            this.setTitle(null);
-            this.setWidth(300);
-        }
+        $literal: true
     });
 
     Bridge.define("Bridge.jQueryUI.Widgets.Enums");
 
+    Bridge.define("Bridge.jQueryUI.Widgets.Enums.Collision", {
+        $kind: "enum",
+        statics: {
+            flip: 0,
+            fit: 1,
+            "fit flip": 2,
+            "fit none": 3
+        }
+    });
+
     Bridge.define("Bridge.jQueryUI.Widgets.Enums.WindowPosition", {
         $kind: "enum",
         statics: {
-            Default: 0,
-            TopLeft: 1,
-            Top: 2,
-            TopRight: 3,
-            CenterLeft: 4,
-            Center: 5,
-            CenterRight: 6,
-            BottomLeft: 7,
-            Bottom: 8,
-            BottomRight: 9
+            center: 0,
+            "left top": 1,
+            top: 2,
+            "right top": 3,
+            left: 4,
+            center: 5,
+            right: 6,
+            "left bottom": 7,
+            bottom: 8,
+            right: 9
         }
     });
 
@@ -411,124 +382,89 @@ Bridge.assembly("Bridge.jQueryUI", function ($asm, globals) {
             button: function (button) {
                 $(button).button();
             },
-            dialogOpen: function (node) {
+            dialog: function (node) {
                 $(node).dialog();
             },
-            dialogOpen$1: function (node, parameter) {
-                var defaultParameter = new Bridge.jQueryUI.Widgets.DialogParameterCollection();
-                var sendedParameter = new $asm.$AnonymousType$1();
+            dialog$1: function (node, parameter) {
+                var $t, $t1;
+                var defaultParameter = Bridge.jQueryUI.Widgets.DialogParameterCollection.ctor({  });
+                var sendedParameter = {  };
 
-                if (!Bridge.referenceEquals(parameter.getAppendTo(), defaultParameter.getAppendTo())) {
-                    sendedParameter.appendTo = $(parameter.getAppendTo());
+                if (!Bridge.referenceEquals(parameter.appendTo, defaultParameter.appendTo)) {
+                    sendedParameter.appendTo = $(parameter.appendTo);
                 }
-                if (parameter.getAutoOpen() !== defaultParameter.getAutoOpen()) {
-                    sendedParameter.autoOpen = parameter.getAutoOpen();
+                if (parameter.autoOpen !== defaultParameter.autoOpen) {
+                    sendedParameter.autoOpen = parameter.autoOpen;
                 }
-                if (!Bridge.referenceEquals(parameter.getClasses(), defaultParameter.getClasses())) {
-                    sendedParameter.classes = parameter.getClasses();
-                }
-                if (parameter.getCloseOnEscape() !== defaultParameter.getCloseOnEscape()) {
-                    sendedParameter.closeOnEscape = parameter.getCloseOnEscape();
-                }
-                if (!Bridge.referenceEquals(parameter.getCloseText(), defaultParameter.getCloseText())) {
-                    sendedParameter.closeText = parameter.getCloseText();
-                }
-                if (!Bridge.referenceEquals(parameter.getDialogClass(), defaultParameter.getDialogClass())) {
-                    sendedParameter.dialogClass = parameter.getDialogClass();
-                }
-                if (parameter.getDraggable() !== defaultParameter.getDraggable()) {
-                    sendedParameter.draggable = parameter.getDraggable();
-                }
-                if (parameter.getHeight() !== defaultParameter.getHeight()) {
-                    sendedParameter.height = parameter.getHeight();
-                }
-                if (parameter.getMaxHeight() !== defaultParameter.getMaxHeight()) {
-                    sendedParameter.maxHeight = parameter.getMaxHeight();
-                }
-                if (parameter.getMaxWidht() !== defaultParameter.getMaxWidht()) {
-                    sendedParameter.maxWidht = parameter.getMaxWidht();
-                }
-                if (parameter.getMinHeight() !== defaultParameter.getMinHeight()) {
-                    sendedParameter.minHeight = parameter.getMinHeight();
-                }
-                if (parameter.getMinWidth() !== defaultParameter.getMinWidth()) {
-                    sendedParameter.minWidth = parameter.getMinWidth();
-                }
-                if (parameter.getModal() !== defaultParameter.getModal()) {
-                    sendedParameter.modal = parameter.getModal();
-                }
-                if (parameter.getPosition() !== defaultParameter.getPosition()) {
-                    sendedParameter.position = new $asm.$AnonymousType$1();
-                    switch (parameter.getPosition()) {
-                        case Bridge.jQueryUI.Widgets.Enums.WindowPosition.Default: 
-                            break;
-                        case Bridge.jQueryUI.Widgets.Enums.WindowPosition.TopLeft: 
-                            sendedParameter.position.my = "left top";
-                            sendedParameter.position.at = "left top";
-                            sendedParameter.position.of = null;
-                            break;
-                        case Bridge.jQueryUI.Widgets.Enums.WindowPosition.Top: 
-                            sendedParameter.position.my = "top";
-                            sendedParameter.position.at = "top";
-                            sendedParameter.position.of = null;
-                            break;
-                        case Bridge.jQueryUI.Widgets.Enums.WindowPosition.TopRight: 
-                            sendedParameter.position.my = "right top";
-                            sendedParameter.position.at = "right top";
-                            sendedParameter.position.of = null;
-                            break;
-                        case Bridge.jQueryUI.Widgets.Enums.WindowPosition.CenterLeft: 
-                            sendedParameter.position.my = "left";
-                            sendedParameter.position.at = "left";
-                            sendedParameter.position.of = null;
-                            break;
-                        case Bridge.jQueryUI.Widgets.Enums.WindowPosition.Center: 
-                            sendedParameter.position.my = "center";
-                            sendedParameter.position.at = "center";
-                            sendedParameter.position.of = null;
-                            break;
-                        case Bridge.jQueryUI.Widgets.Enums.WindowPosition.CenterRight: 
-                            sendedParameter.position.my = "right";
-                            sendedParameter.position.at = "right";
-                            sendedParameter.position.of = null;
-                            break;
-                        case Bridge.jQueryUI.Widgets.Enums.WindowPosition.BottomLeft: 
-                            sendedParameter.position.my = "left bottom";
-                            sendedParameter.position.at = "left bottom";
-                            sendedParameter.position.of = null;
-                            break;
-                        case Bridge.jQueryUI.Widgets.Enums.WindowPosition.Bottom: 
-                            sendedParameter.position.my = "bottom";
-                            sendedParameter.position.at = "bottom";
-                            sendedParameter.position.of = null;
-                            break;
-                        case Bridge.jQueryUI.Widgets.Enums.WindowPosition.BottomRight: 
-                            sendedParameter.position.my = "right bottom";
-                            sendedParameter.position.at = "right bottom";
-                            sendedParameter.position.of = null;
-                            break;
-                        default: 
-                            break;
+                if (!Bridge.referenceEquals(parameter.buttons, defaultParameter.buttons)) {
+
+                    var btns = System.Array.init(parameter.buttons.length, null, Object);
+                    for (var i = 0; i < btns.length; i = (i + 1) | 0) {
+                        var btn = {  };
+                        btn.text = parameter.buttons[i].text;
+                        btn.icon = parameter.buttons[i].icon;
+                        btn.click = parameter.buttons[i].click;
+                        btns[i] = btn;
                     }
+                    sendedParameter.buttons = btns;
 
                 }
 
-                if (parameter.getResizable() !== defaultParameter.getResizable()) {
-                    sendedParameter.resizable = parameter.getResizable();
+                if (!Bridge.referenceEquals(parameter.classes, defaultParameter.classes)) {
+                    sendedParameter.classes = parameter.classes;
                 }
-                if (!Bridge.referenceEquals(parameter.getTitle(), defaultParameter.getTitle())) {
-                    sendedParameter.title = parameter.getTitle();
+                if (parameter.closeOnEscape !== defaultParameter.closeOnEscape) {
+                    sendedParameter.closeOnEscape = parameter.closeOnEscape;
                 }
-                if (parameter.getWidth() !== defaultParameter.getWidth()) {
-                    sendedParameter.width = parameter.getWidth();
+                if (!Bridge.referenceEquals(parameter.closeText, defaultParameter.closeText)) {
+                    sendedParameter.closeText = parameter.closeText;
+                }
+                if (!Bridge.referenceEquals(parameter.dialogClass, defaultParameter.dialogClass)) {
+                    sendedParameter.dialogClass = parameter.dialogClass;
+                }
+                if (parameter.draggable !== defaultParameter.draggable) {
+                    sendedParameter.draggable = parameter.draggable;
+                }
+                if (parameter.height !== defaultParameter.height) {
+                    sendedParameter.height = parameter.height;
+                }
+                if (parameter.maxHeight !== defaultParameter.maxHeight) {
+                    sendedParameter.maxHeight = parameter.maxHeight;
+                }
+                if (parameter.maxWidht !== defaultParameter.maxWidht) {
+                    sendedParameter.maxWidht = parameter.maxWidht;
+                }
+                if (parameter.minHeight !== defaultParameter.minHeight) {
+                    sendedParameter.minHeight = parameter.minHeight;
+                }
+                if (parameter.minWidth !== defaultParameter.minWidth) {
+                    sendedParameter.minWidth = parameter.minWidth;
+                }
+                if (parameter.modal !== defaultParameter.modal) {
+                    sendedParameter.modal = parameter.modal;
+                }
+                if (!Bridge.referenceEquals(parameter.position, defaultParameter.position)) {
+                    sendedParameter.position = {  };
+                    sendedParameter.position.my = ($t=parameter.position.getMy(), System.Enum.toString(Bridge.jQueryUI.Widgets.Enums.WindowPosition, $t));
+                    sendedParameter.position.at = ($t1=parameter.position.getAt(), System.Enum.toString(Bridge.jQueryUI.Widgets.Enums.WindowPosition, $t1));
+                    if (parameter.position.getOf() != null) {
+                        sendedParameter.position.at = $(parameter.position.getOf());
+                    }
+                }
+                if (parameter.resizable !== defaultParameter.resizable) {
+                    sendedParameter.resizable = parameter.resizable;
+                }
+                if (!Bridge.referenceEquals(parameter.title, defaultParameter.title)) {
+                    sendedParameter.title = parameter.title;
+                }
+                if (parameter.width !== defaultParameter.width) {
+                    sendedParameter.width = parameter.width;
                 }
 
 
                 $(node).dialog(sendedParameter);
             },
-            dialogOpen$2: function (node, parameter) {
-
-
+            dialog$2: function (node, parameter) {
                 $(node).dialog(parameter);
             },
             dialogClose: function (node) {
@@ -543,6 +479,24 @@ Bridge.assembly("Bridge.jQueryUI", function ($asm, globals) {
             dialogMoveToTop: function (node) {
                 $(node).dialog("moveToTop");
             }
+        }
+    });
+
+    Bridge.define("Bridge.jQueryUI.Widgets.Position", {
+        config: {
+            properties: {
+                My: 0,
+                At: 0,
+                Of: null,
+                Collision: 0
+            }
+        },
+        ctor: function () {
+            this.$initialize();
+            this.setCollision(Bridge.jQueryUI.Widgets.Enums.Collision.flip);
+            this.setMy(Bridge.jQueryUI.Widgets.Enums.WindowPosition.center);
+            this.setAt(Bridge.jQueryUI.Widgets.Enums.WindowPosition.center);
+            this.setOf(null);
         }
     });
 });

@@ -23,17 +23,35 @@ namespace Bridge.jQueryUI.Widgets
 
 
 
-        public static void DialogOpen(this Bridge.Html5.Node node)
+        public static void Dialog(this Bridge.Html5.Node node)
         {
             new jQuery2.jQuery(node).ToDynamic().dialog();
         }
-        public static void DialogOpen(this Bridge.Html5.Node node, DialogParameterCollection parameter)
+
+
+        public static void Dialog(this Bridge.Html5.Node node, DialogParameterCollection parameter)
         {
             var defaultParameter = new DialogParameterCollection();
-            var sendedParameter = new { }.ToDynamic();
+            var sendedParameter = new object().ToDynamic();
 
             if (parameter.AppendTo != defaultParameter.AppendTo) sendedParameter["appendTo"] = new jQuery2.jQuery( parameter.AppendTo);
             if (parameter.AutoOpen != defaultParameter.AutoOpen) sendedParameter["autoOpen"] = parameter.AutoOpen;
+            if (parameter.Buttons != defaultParameter.Buttons)
+            {
+
+                var btns = new object[parameter.Buttons.Length];
+                for (int i = 0; i < btns.Length; i++)
+                {
+                    var btn = new object().ToDynamic();
+                    btn.text = parameter.Buttons[i].Text;
+                    btn.icon = parameter.Buttons[i].Icon;
+                    btn.click = parameter.Buttons[i].Click;
+                    btns[i] = btn;
+                }
+                sendedParameter["buttons"] = btns.ToDynamic();
+
+            }
+
             if (parameter.Classes != defaultParameter.Classes) sendedParameter["classes"] = parameter.Classes;
             if (parameter.CloseOnEscape != defaultParameter.CloseOnEscape) sendedParameter["closeOnEscape"] = parameter.CloseOnEscape;
             if (parameter.CloseText != defaultParameter.CloseText) sendedParameter["closeText"] = parameter.CloseText;
@@ -47,62 +65,11 @@ namespace Bridge.jQueryUI.Widgets
             if (parameter.Modal != defaultParameter.Modal) sendedParameter["modal"] = parameter.Modal;
             if (parameter.Position != defaultParameter.Position)
             {
-                sendedParameter["position"] = new { }.ToDynamic();
-                switch (parameter.Position)
-                {
-                    case Enums.WindowPosition.Default:
-                        break;
-                    case Enums.WindowPosition.TopLeft:
-                        sendedParameter["position"]["my"] = "left top";
-                        sendedParameter["position"]["at"] = "left top";
-                        sendedParameter["position"]["of"] = null;
-                        break;
-                    case Enums.WindowPosition.Top:
-                        sendedParameter["position"]["my"] = "top";
-                        sendedParameter["position"]["at"] = "top";
-                        sendedParameter["position"]["of"] = null;
-                        break;
-                    case Enums.WindowPosition.TopRight:
-                        sendedParameter["position"]["my"] = "right top";
-                        sendedParameter["position"]["at"] = "right top";
-                        sendedParameter["position"]["of"] = null;
-                        break;
-                    case Enums.WindowPosition.CenterLeft:
-                        sendedParameter["position"]["my"] = "left";
-                        sendedParameter["position"]["at"] = "left";
-                        sendedParameter["position"]["of"] = null;
-                        break;
-                    case Enums.WindowPosition.Center:
-                        sendedParameter["position"]["my"] = "center";
-                        sendedParameter["position"]["at"] = "center";
-                        sendedParameter["position"]["of"] = null;
-                        break;
-                    case Enums.WindowPosition.CenterRight:
-                        sendedParameter["position"]["my"] = "right";
-                        sendedParameter["position"]["at"] = "right";
-                        sendedParameter["position"]["of"] = null;
-                        break;
-                    case Enums.WindowPosition.BottomLeft:
-                        sendedParameter["position"]["my"] = "left bottom";
-                        sendedParameter["position"]["at"] = "left bottom";
-                        sendedParameter["position"]["of"] = null;
-                        break;
-                    case Enums.WindowPosition.Bottom:
-                        sendedParameter["position"]["my"] = "bottom";
-                        sendedParameter["position"]["at"] = "bottom";
-                        sendedParameter["position"]["of"] = null;
-                        break;
-                    case Enums.WindowPosition.BottomRight:
-                        sendedParameter["position"]["my"] = "right bottom";
-                        sendedParameter["position"]["at"] = "right bottom";
-                        sendedParameter["position"]["of"] = null;
-                        break;
-                    default:
-                        break;
-                }
-
+                sendedParameter["position"] = new object().ToDynamic();
+                sendedParameter["position"]["my"] = parameter.Position.My.ToString();
+                sendedParameter["position"]["at"] = parameter.Position.At.ToString();
+                if (parameter.Position.Of != null) sendedParameter["position"]["at"] = new jQuery2.jQuery(parameter.Position.Of);
             }
-
             if (parameter.Resizable != defaultParameter.Resizable) sendedParameter["resizable"] = parameter.Resizable;
             if (parameter.Title != defaultParameter.Title) sendedParameter["title"] = parameter.Title;
             if (parameter.Width != defaultParameter.Width) sendedParameter["width"] = parameter.Width;
@@ -111,10 +78,8 @@ namespace Bridge.jQueryUI.Widgets
             new jQuery2.jQuery(node).ToDynamic().dialog(sendedParameter);
         }
 
-        public static void DialogOpen(this Bridge.Html5.Node node, dynamic parameter)
+        public static void Dialog(this Bridge.Html5.Node node, dynamic parameter)
         {
-
-
             new jQuery2.jQuery(node).ToDynamic().dialog(parameter);
         }
 

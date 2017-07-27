@@ -65,9 +65,11 @@
     <Compile Include="Widgets\AutocompleteTextbox.cs" />
     <Compile Include="Widgets\AutoCompleteTextboxParameter.cs" />
     <Compile Include="Widgets\DatepickerParameter.cs" />
+    <Compile Include="Widgets\DialogButton.cs" />
     <Compile Include="Widgets\DialogParameterCollection.cs" />
     <Compile Include="Widgets\Enums.cs" />
     <Compile Include="Widgets\Extensions.cs" />
+    <Compile Include="Widgets\Position.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Bridge\bridge.json" />

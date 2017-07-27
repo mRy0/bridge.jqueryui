@@ -21,8 +21,15 @@ namespace Test
         private static void ShowMenu()
         {
             HTMLDivElement myDiv = new HTMLDivElement();
-            myDiv.DialogOpen(new DialogParameterCollection() { Title = "Menu" , Position = Bridge.jQueryUI.Widgets.Enums.WindowPosition.BottomRight});
-
+            myDiv.Dialog(new DialogParameterCollection() {
+                Title = "Menu" ,
+                Position = new Bridge.jQueryUI.Widgets.Position()
+                {
+                    My = Bridge.jQueryUI.Widgets.Enums.WindowPosition.Left,
+                    At = Bridge.jQueryUI.Widgets.Enums.WindowPosition.Left,                  
+                },
+                Height = 600
+            });
             HTMLButtonElement button1 = new HTMLButtonElement() { TextContent = "jQueryUI Demo" };
             button1.Button();
             button1.OnClick += (ev) => ShowDemo();
@@ -44,7 +51,16 @@ namespace Test
             btn.Button();
             contendElement.AppendChild(btn);
 
-            contendElement.DialogOpen();
+            contendElement.Dialog(new DialogParameterCollection()
+            {
+                Buttons = new DialogButton[] {
+                    new DialogButton()
+                    {
+                        Click = () => { contendElement.DialogClose(); },
+                        Text = "Close"
+                    }
+                }
+            });
         }
     }
 }
