@@ -1,7 +1,7 @@
 # bridge.jqueryui
 jQueryUi Wrapper for bridge.NET
 
-Demo: https://cdn.rawgit.com/mRy0/bridge.jqueryui/5e561cea/Test/Bridge/www/demo.html
+Demo: https://rawgit.com/mRy0/bridge.jqueryui/master/Test/Bridge/www/demo.html
 
 Button:
 ```c#
