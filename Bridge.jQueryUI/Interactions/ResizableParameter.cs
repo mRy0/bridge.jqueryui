@@ -1,12 +1,11 @@
 ﻿namespace Bridge.jQueryUI.Interactions
 {
-    [ObjectLiteral]
     public class ResizeablePrameterCollection
     {
         //public System.Collections.Generic.IEnumerable<Node> AlsoResize { set; get; }
         public bool Animate { set; get; }
         public int AnimateDuration { set; get; }
-        public Enums.Easing AnimateEasing { set; get; }
+        public Easings AnimateEasing { set; get; }
         //public bool AspectRatio { set; get; }
         public bool AutoHide { set; get; }
         //public System.Collections.Generic.IEnumerable<System.Type> Cancel { set; get; }
@@ -30,8 +29,8 @@
             };
             
             Animate = false;
-            AnimateDuration = Enums.AnimationSpeedFast;
-            AnimateEasing = Enums.Easing.Swing;
+            AnimateDuration = (int)AnimationSpeeds.Fast;
+            AnimateEasing = Easings.Swing;
             AutoHide = false;
             Classes = null;
             Delay = 0;

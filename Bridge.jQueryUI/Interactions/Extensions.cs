@@ -18,10 +18,10 @@ namespace Bridge.jQueryUI.Interactions
         {
             new jQuery2.jQuery(node).ToDynamic().draggable();
         }
-        public static void Draggable(this Node node, DraggableParameterCollection parameter)
+        public static void Draggable(this Node node, DraggableParameter parameter)
         {
             //todo make me better           
-            var pramDefault = new DraggableParameterCollection();
+            var pramDefault = new DraggableParameter();
 
             var jParam = new { }.ToDynamic();
             #region generate options

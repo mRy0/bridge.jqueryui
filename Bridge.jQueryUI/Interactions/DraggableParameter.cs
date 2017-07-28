@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Bridge.jQueryUI.Interactions
 {
     [ObjectLiteral]
-    public class DraggableParameterCollection
+    public class DraggableParameter
     {
         /// <summary>
         /// If set to false, will prevent the ui-draggable class from being added. This may be desired as a performance optimization when calling .draggable() on hundreds of elements.
@@ -21,7 +21,7 @@ namespace Bridge.jQueryUI.Interactions
         /// <summary>
         /// Constrains dragging to either the horizontal (x) or vertical (y) axis. Possible values: "x", "y".
         /// </summary>
-        public Enums.Axis Axis { set; get; }
+        public Axis Axis { set; get; }
         /// <summary>
         /// Prevents dragging from starting on specified elements.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Bridge.jQueryUI.Interactions
         /// Sets the offset of the dragging helper relative to the mouse cursor. 
         /// Coordinates can be given as a hash using a combination of one or two keys: { top, left, right, bottom }.
         /// </summary>
-        public CursorPostition CursorAt { set; get; }
+        public Common.CursorPostition CursorAt { set; get; }
         /// <summary>
         /// Time in milliseconds after mousedown until dragging should start. 
         /// This option can be used to prevent unwanted drags when clicking on an element.
@@ -76,7 +76,7 @@ namespace Bridge.jQueryUI.Interactions
         /// <summary>
         /// Snaps the dragging helper to a grid, every x and y pixels. The array must be of the form [ x, y ]
         /// </summary>
-        public Grid Grid { set; get; }
+        public Common.Grid Grid { set; get; }
         /// <summary>
         /// If specified, restricts dragging from starting unless the mousedown occurs on the specified element(s). 
         /// Only elements that descend from the draggable element are permitted.
@@ -149,7 +149,7 @@ namespace Bridge.jQueryUI.Interactions
         /// Determines which edges of snap elements the draggable will snap to. 
         /// Ignored if the snap option is false. Possible values: "inner", "outer", "both".
         /// </summary>
-        public Enums.SnapModes SnapMode { set; get; }
+        public SnapModes SnapMode { set; get; }
         /// <summary>
         /// The distance in pixels from the snap element edges at which snapping should occur. 
         /// Ignored if the snap option is false.
@@ -166,11 +166,11 @@ namespace Bridge.jQueryUI.Interactions
         public int ZIndex { set; get; }
 
 
-        public DraggableParameterCollection()
+        public DraggableParameter()
         {
             AddClasses = true;
             AppendTo = null;
-            Axis = Enums.Axis.Both;
+            Axis = Axis.Both;
             Cancel = null;
             Classes = null;
             ConnectToSortable =null;
@@ -193,7 +193,7 @@ namespace Bridge.jQueryUI.Interactions
             ScrollSensivity = 20;
             ScrollSpeed = 20;
             Snap = false;
-            SnapMode = Enums.SnapModes.Both;
+            SnapMode = SnapModes.Both;
             SnapTolerance = 20;
             Stack = null;
             ZIndex = -1;

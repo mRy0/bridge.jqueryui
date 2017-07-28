@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bridge.jQueryUI.Interactions
+namespace Bridge.jQueryUI.Common
 {
-    [ObjectLiteral]
     public class Grid
     {
         public int X { set; get; }

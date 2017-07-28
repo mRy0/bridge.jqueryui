@@ -49,27 +49,33 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Classes.cs" />
     <Compile Include="Effects\EffectPrameter.cs" />
-    <Compile Include="Effects\Enums.cs" />
     <Compile Include="Effects\Extensions.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="Helper.cs" />
-    <Compile Include="Interactions\CursorPostition.cs" />
-    <Compile Include="Interactions\DraggableParameterCollection.cs" />
-    <Compile Include="Interactions\Enums.cs" />
+    <Compile Include="Common\CursorPostition.cs" />
+    <Compile Include="Interactions\DraggableParameter.cs" />
     <Compile Include="Interactions\Extensions.cs" />
-    <Compile Include="ExternalCalls.cs" />
-    <Compile Include="Interactions\Grid.cs" />
-    <Compile Include="Interactions\ResizableParameterCollection.cs" />
+    <Compile Include="Common\Grid.cs" />
+    <Compile Include="Interactions\ResizableParameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Statics.cs" />
-    <Compile Include="Widgets\AutocompleteTextbox.cs" />
-    <Compile Include="Widgets\AutoCompleteTextboxParameter.cs" />
+    <Compile Include="Widgets\AccordionParameter.cs" />
+    <Compile Include="Common\Animation.cs" />
+    <Compile Include="Widgets\AutocompleteParameter.cs" />
+    <Compile Include="Widgets\AutocompleteSource.cs" />
+    <Compile Include="Widgets\ButtonParameter.cs" />
+    <Compile Include="Widgets\CheckboxradioParameter.cs" />
     <Compile Include="Widgets\DatepickerParameter.cs" />
     <Compile Include="Widgets\DialogButton.cs" />
-    <Compile Include="Widgets\DialogParameterCollection.cs" />
-    <Compile Include="Widgets\Enums.cs" />
+    <Compile Include="Widgets\DialogParameter.cs" />
     <Compile Include="Widgets\Extensions.cs" />
-    <Compile Include="Widgets\Position.cs" />
+    <Compile Include="Common\Position.cs" />
+    <Compile Include="Widgets\ProgressbarParamter.cs" />
+    <Compile Include="Widgets\SliderEvent.cs" />
+    <Compile Include="Widgets\SliderParamter.cs" />
+    <Compile Include="Widgets\TabsParameter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Bridge\bridge.json" />
