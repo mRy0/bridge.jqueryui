@@ -271,5 +271,67 @@ namespace Bridge.jQueryUI.Widgets
 
 
         #endregion
+
+
+        #region Selectmenu
+
+
+        public static void Selectmenu(this Bridge.Html5.HTMLSelectElement node)
+        {
+            new jQuery2.jQuery(node).ToDynamic().selectmenu();
+        }
+        public static void Selectmenu(this Bridge.Html5.HTMLSelectElement node, SelectmenuParameter paramter)
+        {
+            new jQuery2.jQuery(node).ToDynamic().selectmenu(paramter.ToJsObject());
+        }
+        public static void SelectmenuClose(this Bridge.Html5.HTMLSelectElement node)
+        {
+            new jQuery2.jQuery(node).ToDynamic().selectmenu("close");
+        }
+        public static void SelectmenuDestroy(this Bridge.Html5.HTMLSelectElement node)
+        {
+            new jQuery2.jQuery(node).ToDynamic().selectmenu("destroy");
+        }
+        public static bool SelectmenuDisable(this Bridge.Html5.HTMLSelectElement node)
+        {
+            return new jQuery2.jQuery(node).ToDynamic().selectmenu("disable");
+        }
+        public static bool SelectmenuEnable(this Bridge.Html5.HTMLSelectElement node)
+        {
+            return new jQuery2.jQuery(node).ToDynamic().selectmenu("enable");
+        }
+        #endregion
+
+
+        #region Menu
+
+        public static void Menu(this Bridge.Html5.Node node)
+        {
+            new jQuery2.jQuery(node).ToDynamic().menu();
+        }
+
+        public static void Menu(this Bridge.Html5.Node node, MenuParameter parameter)
+        {
+            new jQuery2.jQuery(node).ToDynamic().menu(parameter.ToJsObject());
+        }
+
+
+        #endregion
+
+
+        #region tooltip
+
+        public static void Tooltip (this Bridge.Html5.Node node)
+        {
+            new jQuery2.jQuery(node).ToDynamic().tooltip();
+        }
+
+        public static void Tooltip(this Bridge.Html5.Node node, TooltipParamter parameter)
+        {
+            new jQuery2.jQuery(node).ToDynamic().tooltip(parameter.ToJsObject());
+        }
+
+        #endregion
+
     }
 }

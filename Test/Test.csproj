@@ -61,59 +61,15 @@
   <ItemGroup>
     <Content Include="Bridge\css\demo.css" />
     <Content Include="Bridge\img\darkwoodback.jpg" />
-    <Content Include="Bridge\js\images\ui-icons_444444_256x240.png">
-      <CustomToolNamespace>js/images</CustomToolNamespace>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Bridge\js\images\ui-icons_555555_256x240.png">
-      <CustomToolNamespace>js/images</CustomToolNamespace>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Bridge\js\images\ui-icons_777620_256x240.png">
-      <CustomToolNamespace>js/images</CustomToolNamespace>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Bridge\js\images\ui-icons_777777_256x240.png">
-      <CustomToolNamespace>js/images</CustomToolNamespace>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Bridge\js\images\ui-icons_cc0000_256x240.png">
-      <CustomToolNamespace>js/images</CustomToolNamespace>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Bridge\js\images\ui-icons_ffffff_256x240.png">
-      <CustomToolNamespace>js/images</CustomToolNamespace>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Bridge\js\jquery-3.1.1.js" />
     <Content Include="Bridge\js\jquery-3.1.1.min.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Bridge\js\jquery-ui.css">
-      <CustomToolNamespace>js</CustomToolNamespace>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Bridge\js\jquery-ui.js">
       <CustomToolNamespace>js</CustomToolNamespace>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Bridge\js\jquery-ui.min.css">
-      <CustomToolNamespace>js</CustomToolNamespace>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Bridge\js\jquery-ui.min.js">
-      <CustomToolNamespace>js</CustomToolNamespace>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Bridge\js\jquery-ui.structure.css">
-      <CustomToolNamespace>js</CustomToolNamespace>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Bridge\js\jquery-ui.structure.min.css">
-      <CustomToolNamespace>js</CustomToolNamespace>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Bridge\js\jquery-ui.theme.css">
       <CustomToolNamespace>js</CustomToolNamespace>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -134,6 +90,9 @@
       <Project>{7532ddd5-eb86-4e05-abbf-846ad05c61a9}</Project>
       <Name>Bridge.jQueryUI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bridge\css\ui_themes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Bridge.Min.15.7.0\build\Bridge.Min.targets" Condition="Exists('..\packages\Bridge.Min.15.7.0\build\Bridge.Min.targets')" />

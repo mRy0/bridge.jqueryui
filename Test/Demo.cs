@@ -3,16 +3,18 @@ using Bridge.Html5;
 using Bridge.jQueryUI.Interactions;
 using Bridge.jQueryUI.Widgets;
 using Bridge.jQueryUI.Effects;
+using Bridge.jQueryUI;
 
 namespace Test
 {
     public class Demo
     {
-        private static HTMLButtonElement _demoButton; 
+        
+        private static HTMLButtonElement _demoButton;
         public static void Main()
         {
             //create a simple lets go button
-            _demoButton  = new HTMLButtonElement() { TextContent = "Menu" };
+            _demoButton = new HTMLButtonElement() { TextContent = "Menu" };
             _demoButton.Button();
             _demoButton.OnClick += (ev) => { ShowMenu(); };
             Document.Body.AppendChild(_demoButton);
@@ -35,8 +37,14 @@ namespace Test
             HTMLButtonElement button1 = new HTMLButtonElement() { TextContent = "jQueryUI Demo All" };
             button1.Button();
             button1.OnClick += (ev) => ShowDemo();
-
             myDiv.AppendChild(button1);
+            myDiv.AppendChild(new HTMLBRElement());
+
+            var themes = new HTMLButtonElement() { TextContent = "Themes" };
+            themes.Button();
+            themes.OnClick += (ev) => ThemeChanger();
+
+            myDiv.AppendChild(themes);
         }
 
         //show the default jquery ui demo
@@ -298,12 +306,12 @@ namespace Test
                 contendElement.AppendChild(slider);
                 var val = new HTMLParagraphElement()
                 {
-                    TextContent = "Wert"
+                    TextContent = "Value"
                 };
                 contendElement.AppendChild(val);
                 slider.SliderSlide(new System.Action<Bridge.jQueryUI.JqueryEvents, SliderEvent>((ev, ui) => 
                 {                    
-                    val.TextContent = "Wert: " + ui.Value;
+                    val.TextContent = "Value: " + ui.Value;
                 }));
 
             }
@@ -355,6 +363,100 @@ namespace Test
             }
             #endregion
 
+            #region selectmenu
+            {
+                contendElement.AppendChild(new HTMLHeadingElement(HeadingType.H2) { TextContent = "Selectmenu" });
+                var sel = new HTMLSelectElement();
+                sel.AppendChild(new HTMLOptionElement() { TextContent = "Slower" });
+                sel.AppendChild(new HTMLOptionElement() { TextContent = "Slow" });
+                sel.AppendChild(new HTMLOptionElement() { TextContent = "Medium" });
+                sel.AppendChild(new HTMLOptionElement() { TextContent = "Fast" });
+                sel.AppendChild(new HTMLOptionElement() { TextContent = "Faster" });
+                contendElement.AppendChild(sel);
+                sel.Selectmenu(new SelectmenuParameter() { AppendTo = contendElement });
+            }
+            #endregion
+
+
+            #region menu
+            {
+                contendElement.AppendChild(new HTMLHeadingElement(HeadingType.H2) { TextContent = "Menu" });
+
+                var menu = new HTMLUListElement();
+                menu.Style.Width = "150px";
+                menu.AppendChild(new HTMLLIElement() { ClassName = "ui-state-disabled" }.AppendChild(new HTMLDivElement() { TextContent = "Toys (n/a)" }).ParentNode);
+                menu.AppendChild(new HTMLLIElement().AppendChild(new HTMLDivElement() { TextContent = "Books" }).ParentNode);
+                menu.AppendChild(new HTMLLIElement().AppendChild(new HTMLDivElement() { TextContent = "Clothing" }).ParentNode);
+                menu.AppendChild(new HTMLLIElement().AppendChild(new HTMLDivElement() { TextContent = "Electronics" }).ParentNode
+                    .AppendChild(new HTMLUListElement()
+                        .AppendChild(new HTMLLIElement() { ClassName = "ui-state-disabled" }.AppendChild(new HTMLDivElement() { TextContent = "Home Entertainment" }).ParentNode).ParentNode
+                        .AppendChild(new HTMLLIElement().AppendChild(new HTMLDivElement() { TextContent = "Car Hifi" }).ParentNode).ParentNode
+                        .AppendChild(new HTMLLIElement().AppendChild(new HTMLDivElement() { TextContent = "Utilities" }).ParentNode).ParentNode
+               ).ParentNode);
+                menu.AppendChild(new HTMLLIElement().AppendChild(new HTMLDivElement() { TextContent = "Movies" }).ParentNode);
+
+                menu.AppendChild(new HTMLLIElement().AppendChild(new HTMLDivElement() { TextContent = "Music" }).ParentNode
+                    .AppendChild(new HTMLUListElement()
+                        .AppendChild(new HTMLLIElement().AppendChild(new HTMLDivElement() { TextContent = "Rock" }).ParentNode
+                            .AppendChild(new HTMLUListElement()
+                                .AppendChild(new HTMLLIElement().AppendChild(new HTMLDivElement() { TextContent = "Alternative"}).ParentNode).ParentNode
+                                .AppendChild(new HTMLLIElement().AppendChild(new HTMLDivElement() { TextContent = "Classics" }).ParentNode).ParentNode
+                            ).ParentNode
+                        ).ParentNode
+                        .AppendChild(new HTMLLIElement().AppendChild(new HTMLDivElement() { TextContent = "Jazz" }).ParentNode
+                            .AppendChild(new HTMLUListElement()
+                                .AppendChild(new HTMLLIElement().AppendChild(new HTMLDivElement() { TextContent = "Freejazz" }).ParentNode).ParentNode
+                                .AppendChild(new HTMLLIElement().AppendChild(new HTMLDivElement() { TextContent = "Big Band" }).ParentNode).ParentNode
+                                .AppendChild(new HTMLLIElement().AppendChild(new HTMLDivElement() { TextContent = "Modern" }).ParentNode).ParentNode
+                            ).ParentNode
+                        ).ParentNode
+                        .AppendChild(new HTMLLIElement().AppendChild(new HTMLDivElement() { TextContent = "Pop" }).ParentNode).ParentNode
+               ).ParentNode);
+               menu.AppendChild(new HTMLLIElement() { ClassName = "ui-state-disabled" }.AppendChild(new HTMLDivElement() { TextContent = "Specials (n/a)" }).ParentNode);
+                
+
+
+                menu.Menu();
+                contendElement.AppendChild(menu);
+            }
+            #endregion
+
+
+            #region tooltip
+            {
+                contendElement.AppendChild(new HTMLHeadingElement(HeadingType.H2) { TextContent = "Tooltip" });
+
+                var para = new HTMLParagraphElement();
+                var ttlink = new HTMLAnchorElement() { Href ="#", TextContent = "Tooltips", Title = "That's what this widget is" };
+                ttlink.Tooltip();
+                para.AppendChild(ttlink);
+
+
+                para.AppendChild(new Text(" can be attached to any element. When you hover the element with your mouse, the title attribute is displayed in a little box next to the element, just like a native tooltip."));
+                contendElement.AppendChild(para);
+
+
+
+            }
+            #endregion
+
+
+            #region errorhigh
+            {
+                contendElement.AppendChild(new HTMLHeadingElement(HeadingType.H2) { TextContent = "Highlight / Error" });
+                var highlight = new HTMLDivElement();
+                highlight.Highlight("Hey!", " Sample ui-state-highlight style.");
+                contendElement.AppendChild(highlight);
+                contendElement.AppendChild(new HTMLBRElement());
+                var error = new HTMLDivElement();
+                error.Error("Hey!", "Sample ui-state-error style.");
+                contendElement.AppendChild(error);
+            }
+            #endregion
+
+
+
+
             contendElement.Dialog(new DialogParameter()
             {
                 Buttons = new DialogButton[] {
@@ -365,10 +467,43 @@ namespace Test
                     }
                 },
                 Height = 600,
-                Width = 900
+                Width = 900,
+                Title = "jQueryUi Demo Elements"
             });
 
 
+        }
+
+
+        private static void ThemeChanger()
+        {
+            var dialog = new HTMLDivElement();
+            var themes = new string[] { "base", "black-tie", "blitzer", "cupertino", "dark-hive", "dot-luv", "eggplant", "excite-bike", "flick", "hot-sneaks", "humanity", "le-frog", "mint-choc",
+                "overcast", "pepper-grinder", "redmond", "smoothness", "south-street", "start", "sunny", "swanky-purse", "trontastic", "ui-darkness", "ui-lightness", "vader" };
+
+            var sel = new HTMLSelectElement();
+            foreach(var theme in themes)
+            {
+                sel.AppendChild(new HTMLOptionElement() { TextContent = theme, Value = theme });
+            }
+            dialog.AppendChild(sel);
+            sel.Selectmenu(new SelectmenuParameter() { AppendTo = dialog});
+            var btn = new HTMLButtonElement() { TextContent = "OK" };
+            btn.Button();
+            btn.OnClick = (ev) => 
+            {
+                var newTheme = sel.Options[sel.SelectedIndex].Value;
+                var theme = Document.GetElementById<HTMLStyleElement>("uitheme");
+                theme.ToDynamic().href = "../css/ui_themes/" + newTheme + "/theme.css";
+            };
+            dialog.AppendChild(btn);
+            dialog.Dialog(new DialogParameter() {
+                Position = new Bridge.jQueryUI.Common.Position() { At = Bridge.jQueryUI.WindowPositions.Center, My = Bridge.jQueryUI.WindowPositions.Center },
+                Title = "Themeroller",
+                Width = 400,
+                Height = 300                
+            });
+            
         }
     }
 }

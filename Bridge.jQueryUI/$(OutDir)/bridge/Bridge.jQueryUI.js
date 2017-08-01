@@ -507,6 +507,41 @@ Bridge.assembly("Bridge.jQueryUI", function ($asm, globals) {
         }
     });
 
+    Bridge.define("Bridge.jQueryUI.Messageboxes", {
+        statics: {
+            highlight: function (div, title, message, icon) {
+                if (icon === void 0) { icon = 123; }
+                var para = document.createElement('p');
+
+                para.appendChild(Bridge.merge(document.createElement('span'), {
+                    className: System.String.concat("ui-icon ", System.Enum.toString(Bridge.jQueryUI.UIIcons, icon))
+                } ));
+                para.appendChild(Bridge.merge(document.createElement("strong"), {
+                    textContent: title
+                } ));
+                para.appendChild(document.createTextNode(message));
+                div.appendChild(para);
+                div.classList.add("ui-state-highlight");
+                div.classList.add("ui-corner-all");
+            },
+            error: function (div, title, message, icon) {
+                if (icon === void 0) { icon = 122; }
+                var para = document.createElement('p');
+
+                para.appendChild(Bridge.merge(document.createElement('span'), {
+                    className: System.String.concat("ui-icon ", System.Enum.toString(Bridge.jQueryUI.UIIcons, icon))
+                } ));
+                para.appendChild(Bridge.merge(document.createElement("strong"), {
+                    textContent: title
+                } ));
+                para.appendChild(document.createTextNode(message));
+                div.appendChild(para);
+                div.classList.add("ui-state-error");
+                div.classList.add("ui-corner-all");
+            }
+        }
+    });
+
     Bridge.define("Bridge.jQueryUI.Orientations", {
         $kind: "enum",
         statics: {
@@ -535,6 +570,186 @@ Bridge.assembly("Bridge.jQueryUI", function ($asm, globals) {
     });
 
     Bridge.define("Bridge.jQueryUI.Statics");
+
+    Bridge.define("Bridge.jQueryUI.UIIcons", {
+        $kind: "enum",
+        statics: {
+            "ui-icon-blank": 1,
+            "ui-icon-caret-1-n": 2,
+            "ui-icon-caret-1-ne": 3,
+            "ui-icon-caret-1-e": 4,
+            "ui-icon-caret-1-se": 5,
+            "ui-icon-caret-1-s": 6,
+            "ui-icon-caret-1-sw": 7,
+            "ui-icon-caret-1-w": 8,
+            "ui-icon-caret-1-nw": 9,
+            "ui-icon-caret-2-n-s": 10,
+            "ui-icon-caret-2-e-w": 11,
+            "ui-icon-triangle-1-n": 12,
+            "ui-icon-triangle-1-ne": 13,
+            "ui-icon-triangle-1-e": 14,
+            "ui-icon-triangle-1-se": 15,
+            "ui-icon-triangle-1-s": 16,
+            "ui-icon-triangle-1-sw": 17,
+            "ui-icon-triangle-1-w": 18,
+            "ui-icon-triangle-1-nw": 19,
+            "ui-icon-triangle-2-n-s": 20,
+            "ui-icon-triangle-2-e-w": 21,
+            "ui-icon-arrow-1-n": 22,
+            "ui-icon-arrow-1-ne": 23,
+            "ui-icon-arrow-1-e": 24,
+            "ui-icon-arrow-1-se": 25,
+            "ui-icon-arrow-1-s": 26,
+            "ui-icon-arrow-1-sw": 27,
+            "ui-icon-arrow-1-w": 28,
+            "ui-icon-arrow-1-nw": 29,
+            "ui-icon-arrow-2-n-s": 30,
+            "ui-icon-arrow-2-ne-sw": 31,
+            "ui-icon-arrow-2-e-w": 32,
+            "ui-icon-arrow-2-se-nw": 33,
+            "ui-icon-arrowstop-1-n": 34,
+            "ui-icon-arrowstop-1-e": 35,
+            "ui-icon-arrowstop-1-s": 36,
+            "ui-icon-arrowstop-1-w": 37,
+            "ui-icon-arrowthick-1-n": 38,
+            "ui-icon-arrowthick-1-ne": 39,
+            "ui-icon-arrowthick-1-e": 40,
+            "ui-icon-arrowthick-1-se": 41,
+            "ui-icon-arrowthick-1-s": 42,
+            "ui-icon-arrowthick-1-sw": 43,
+            "ui-icon-arrowthick-1-w": 44,
+            "ui-icon-arrowthick-1-nw": 45,
+            "ui-icon-arrowthick-2-n-s": 46,
+            "ui-icon-arrowthick-2-ne-sw": 47,
+            "ui-icon-arrowthick-2-e-w": 48,
+            "ui-icon-arrowthick-2-se-nw": 49,
+            "ui-icon-arrowthickstop-1-n": 50,
+            "ui-icon-arrowthickstop-1-e": 51,
+            "ui-icon-arrowthickstop-1-s": 52,
+            "ui-icon-arrowthickstop-1-w": 53,
+            "ui-icon-arrowreturnthick-1-w": 54,
+            "ui-icon-arrowreturnthick-1-n": 55,
+            "ui-icon-arrowreturnthick-1-e": 56,
+            "ui-icon-arrowreturnthick-1-s": 57,
+            "ui-icon-arrowreturn-1-w": 58,
+            "ui-icon-arrowreturn-1-n": 59,
+            "ui-icon-arrowreturn-1-e": 60,
+            "ui-icon-arrowreturn-1-s": 61,
+            "ui-icon-arrowrefresh-1-w": 62,
+            "ui-icon-arrowrefresh-1-n": 63,
+            "ui-icon-arrowrefresh-1-e": 64,
+            "ui-icon-arrowrefresh-1-s": 65,
+            "ui-icon-arrow-4": 66,
+            "ui-icon-arrow-4-diag": 67,
+            "ui-icon-extlink": 68,
+            "ui-icon-newwin": 69,
+            "ui-icon-refresh": 70,
+            "ui-icon-shuffle": 71,
+            "ui-icon-transfer-e-w": 72,
+            "ui-icon-transferthick-e-w": 73,
+            "ui-icon-folder-collapsed": 74,
+            "ui-icon-folder-open": 75,
+            "ui-icon-document": 76,
+            "ui-icon-document-b": 77,
+            "ui-icon-note": 78,
+            "ui-icon-mail-closed": 79,
+            "ui-icon-mail-open": 80,
+            "ui-icon-suitcase": 81,
+            "ui-icon-comment": 82,
+            "ui-icon-person": 83,
+            "ui-icon-print": 84,
+            "ui-icon-trash": 85,
+            "ui-icon-locked": 86,
+            "ui-icon-unlocked": 87,
+            "ui-icon-bookmark": 88,
+            "ui-icon-tag": 89,
+            "ui-icon-home": 90,
+            "ui-icon-flag": 91,
+            "ui-icon-calculator": 92,
+            "ui-icon-cart": 93,
+            "ui-icon-pencil": 94,
+            "ui-icon-clock": 95,
+            "ui-icon-disk": 96,
+            "ui-icon-calendar": 97,
+            "ui-icon-zoomin": 98,
+            "ui-icon-zoomout": 99,
+            "ui-icon-search": 100,
+            "ui-icon-wrench": 101,
+            "ui-icon-gear": 102,
+            "ui-icon-heart": 103,
+            "ui-icon-star": 104,
+            "ui-icon-link": 105,
+            "ui-icon-cancel": 106,
+            "ui-icon-plus": 107,
+            "ui-icon-plusthick": 108,
+            "ui-icon-minus": 109,
+            "ui-icon-minusthick": 110,
+            "ui-icon-close": 111,
+            "ui-icon-closethick": 112,
+            "ui-icon-key": 113,
+            "ui-icon-lightbulb": 114,
+            "ui-icon-scissors": 115,
+            "ui-icon-clipboard": 116,
+            "ui-icon-copy": 117,
+            "ui-icon-contact": 118,
+            "ui-icon-image": 119,
+            "ui-icon-video": 120,
+            "ui-icon-script": 121,
+            "ui-icon-alert": 122,
+            "ui-icon-info": 123,
+            "ui-icon-notice": 124,
+            "ui-icon-help": 125,
+            "ui-icon-check": 126,
+            "ui-icon-bullet": 127,
+            "ui-icon-radio-off": 128,
+            "ui-icon-radio-on": 129,
+            "ui-icon-pin-w": 130,
+            "ui-icon-pin-s": 131,
+            "ui-icon-play": 132,
+            "ui-icon-pause": 133,
+            "ui-icon-seek-next": 134,
+            "ui-icon-seek-prev": 135,
+            "ui-icon-seek-end": 136,
+            "ui-icon-seek-first": 137,
+            "ui-icon-stop": 138,
+            "ui-icon-eject": 139,
+            "ui-icon-volume-off": 140,
+            "ui-icon-volume-on": 141,
+            "ui-icon-power": 142,
+            "ui-icon-signal-diag": 143,
+            "ui-icon-signal": 144,
+            "ui-icon-battery-0": 145,
+            "ui-icon-battery-1": 146,
+            "ui-icon-battery-2": 147,
+            "ui-icon-battery-3": 148,
+            "ui-icon-circle-plus": 149,
+            "ui-icon-circle-minus": 150,
+            "ui-icon-circle-close": 151,
+            "ui-icon-circle-triangle-e": 152,
+            "ui-icon-circle-triangle-s": 153,
+            "ui-icon-circle-triangle-w": 154,
+            "ui-icon-circle-triangle-n": 155,
+            "ui-icon-circle-arrow-e": 156,
+            "ui-icon-circle-arrow-s": 157,
+            "ui-icon-circle-arrow-w": 158,
+            "ui-icon-circle-arrow-n": 159,
+            "ui-icon-circle-zoomin": 160,
+            "ui-icon-circle-zoomout": 161,
+            "ui-icon-circle-check": 162,
+            "ui-icon-circlesmall-plus": 163,
+            "ui-icon-circlesmall-minus": 164,
+            "ui-icon-circlesmall-close": 165,
+            "ui-icon-squaresmall-plus": 166,
+            "ui-icon-squaresmall-minus": 167,
+            "ui-icon-squaresmall-close": 168,
+            "ui-icon-grip-dotted-vertical": 169,
+            "ui-icon-grip-dotted-horizontal": 170,
+            "ui-icon-grip-solid-vertical": 171,
+            "ui-icon-grip-solid-horizontal": 172,
+            "ui-icon-gripsmall-diagonal-se": 173,
+            "ui-icon-grip-diagonal-se": 174
+        }
+    });
 
     Bridge.define("Bridge.jQueryUI.Widgets.AccordionParameter", {
         $literal: true,
@@ -819,6 +1034,36 @@ Bridge.assembly("Bridge.jQueryUI", function ($asm, globals) {
             },
             progressbarValue$1: function (node, value) {
                 $(node).progressbar("value", value);
+            },
+            selectmenu: function (node) {
+                $(node).selectmenu();
+            },
+            selectmenu$1: function (node, paramter) {
+                $(node).selectmenu(Bridge.jQueryUI.Widgets.SelectmenuParameter.prototype.toJsObject.call(paramter));
+            },
+            selectmenuClose: function (node) {
+                $(node).selectmenu("close");
+            },
+            selectmenuDestroy: function (node) {
+                $(node).selectmenu("destroy");
+            },
+            selectmenuDisable: function (node) {
+                return $(node).selectmenu("disable");
+            },
+            selectmenuEnable: function (node) {
+                return $(node).selectmenu("enable");
+            },
+            menu: function (node) {
+                $(node).menu();
+            },
+            menu$1: function (node, parameter) {
+                $(node).menu(Bridge.jQueryUI.Widgets.MenuParameter.prototype.toJsObject.call(parameter));
+            },
+            tooltip: function (node) {
+                $(node).tooltip();
+            },
+            tooltip$1: function (node, parameter) {
+                $(node).tooltip(Bridge.jQueryUI.Widgets.TooltipParamter.prototype.toJsObject.call(parameter));
             }
         }
     });
@@ -873,10 +1118,43 @@ Bridge.assembly("Bridge.jQueryUI", function ($asm, globals) {
         }
     });
 
+    Bridge.define("Bridge.jQueryUI.Widgets.MenuParameter", {
+        $literal: true,
+        toJsObject: function () {
+            var $t;
+            var jObj = this;
+
+            if (!isNaN(this.icon)) {
+                jObj.icon = ($t=this.icon, System.Enum.toString(Bridge.jQueryUI.UIIcons, $t));
+            }
+            if (!isNaN(this.position)) {
+                jObj.position = Bridge.jQueryUI.Common.Position.prototype.toJsObject.call(this.position);
+            }
+
+            return jObj;
+        }
+    });
+
     Bridge.define("Bridge.jQueryUI.Widgets.ProgressbarParamter", {
         $literal: true,
         toJsObject: function () {
             return this;
+        }
+    });
+
+    Bridge.define("Bridge.jQueryUI.Widgets.SelectmenuParameter", {
+        $literal: true,
+        toJsObject: function () {
+            var jObj = this;
+
+            if (this.appendTo != null) {
+                jObj.appendTo = $(this.appendTo);
+            }
+            if (this.position != null) {
+                jObj.position = Bridge.jQueryUI.Common.Position.prototype.toJsObject.call(this.position);
+            }
+
+            return jObj;
         }
     });
 
@@ -919,6 +1197,28 @@ Bridge.assembly("Bridge.jQueryUI", function ($asm, globals) {
             if (!isNaN(this.show)) {
                 jObj.show = Bridge.jQueryUI.Common.Animation.prototype.toJsObject.call(this.show);
             }
+            return jObj;
+        }
+    });
+
+    Bridge.define("Bridge.jQueryUI.Widgets.TooltipParamter", {
+        $literal: true,
+        toJsObject: function () {
+            var jObj = this;
+
+            if (!isNaN(this.content)) {
+                jObj.content = $(this.content);
+            }
+            if (!isNaN(this.hide)) {
+                jObj.hide = Bridge.jQueryUI.Common.Animation.prototype.toJsObject.call(this.hide);
+            }
+            if (!isNaN(this.position)) {
+                jObj.position = Bridge.jQueryUI.Common.Position.prototype.toJsObject.call(this.position);
+            }
+            if (!isNaN(this.show)) {
+                jObj.show = Bridge.jQueryUI.Common.Animation.prototype.toJsObject.call(this.show);
+            }
+
             return jObj;
         }
     });

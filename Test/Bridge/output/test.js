@@ -19,8 +19,16 @@ Bridge.assembly("Test", function ($asm, globals) {
                 } );
                 Bridge.jQueryUI.Widgets.Extensions.button(button1);
                 button1.onclick = Bridge.fn.combine(button1.onclick, $asm.$.Test.Demo.f1);
-
                 myDiv.appendChild(button1);
+                myDiv.appendChild(document.createElement('br'));
+
+                var themes = Bridge.merge(document.createElement('button'), {
+                    textContent: "Themes"
+                } );
+                Bridge.jQueryUI.Widgets.Extensions.button(themes);
+                themes.onclick = Bridge.fn.combine(themes.onclick, $asm.$.Test.Demo.f2);
+
+                myDiv.appendChild(themes);
             },
             showDemo: function () {
                 var contendElement = document.createElement('div');
@@ -276,8 +284,8 @@ Bridge.assembly("Test", function ($asm, globals) {
                     Bridge.jQueryUI.Widgets.Extensions.button$1(btnNrm, Bridge.jQueryUI.Widgets.ButtonParameter.ctor({ icon: "ui-icon-newwin" }));
                     Bridge.jQueryUI.Widgets.Extensions.button$1(btnMdl, Bridge.jQueryUI.Widgets.ButtonParameter.ctor({ icon: "ui-icon-newwin" }));
 
-                    btnNrm.onclick = Bridge.fn.combine(btnNrm.onclick, $asm.$.Test.Demo.f2);
-                    btnMdl.onclick = Bridge.fn.combine(btnMdl.onclick, $asm.$.Test.Demo.f3);
+                    btnNrm.onclick = Bridge.fn.combine(btnNrm.onclick, $asm.$.Test.Demo.f3);
+                    btnMdl.onclick = Bridge.fn.combine(btnMdl.onclick, $asm.$.Test.Demo.f4);
                     contendElement.appendChild(btnNrm);
                     contendElement.appendChild(btnMdl);
 
@@ -293,11 +301,11 @@ Bridge.assembly("Test", function ($asm, globals) {
                     Bridge.jQueryUI.Widgets.Extensions.slider(slider);
                     contendElement.appendChild(slider);
                     var val = Bridge.merge(document.createElement('p'), {
-                        textContent: "Wert"
+                        textContent: "Value"
                     } );
                     contendElement.appendChild(val);
                     Bridge.jQueryUI.Widgets.Extensions.sliderSlide(slider, function (ev, ui) {
-                        val.textContent = "Wert: " + ui.value;
+                        val.textContent = "Value: " + ui.value;
                     });
 
                 }
@@ -394,10 +402,170 @@ Bridge.assembly("Test", function ($asm, globals) {
 
                 }
 
+                {
+                    contendElement.appendChild(Bridge.merge(document.createElement("h2"), {
+                        textContent: "Selectmenu"
+                    } ));
+                    var sel = document.createElement('select');
+                    sel.appendChild(Bridge.merge(document.createElement('option'), {
+                        textContent: "Slower"
+                    } ));
+                    sel.appendChild(Bridge.merge(document.createElement('option'), {
+                        textContent: "Slow"
+                    } ));
+                    sel.appendChild(Bridge.merge(document.createElement('option'), {
+                        textContent: "Medium"
+                    } ));
+                    sel.appendChild(Bridge.merge(document.createElement('option'), {
+                        textContent: "Fast"
+                    } ));
+                    sel.appendChild(Bridge.merge(document.createElement('option'), {
+                        textContent: "Faster"
+                    } ));
+                    contendElement.appendChild(sel);
+                    Bridge.jQueryUI.Widgets.Extensions.selectmenu$1(sel, Bridge.jQueryUI.Widgets.SelectmenuParameter.ctor({ appendTo: contendElement }));
+                }
+
+
+                {
+                    contendElement.appendChild(Bridge.merge(document.createElement("h2"), {
+                        textContent: "Menu"
+                    } ));
+
+                    var menu = document.createElement('ul');
+                    menu.style.width = "150px";
+                    menu.appendChild(Bridge.merge(document.createElement('li'), {
+                        className: "ui-state-disabled"
+                    } ).appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Toys (n/a)"
+                    } )).parentNode);
+                    menu.appendChild(document.createElement('li').appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Books"
+                    } )).parentNode);
+                    menu.appendChild(document.createElement('li').appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Clothing"
+                    } )).parentNode);
+                    menu.appendChild(document.createElement('li').appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Electronics"
+                    } )).parentNode.appendChild(document.createElement('ul').appendChild(Bridge.merge(document.createElement('li'), {
+                        className: "ui-state-disabled"
+                    } ).appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Home Entertainment"
+                    } )).parentNode).parentNode.appendChild(document.createElement('li').appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Car Hifi"
+                    } )).parentNode).parentNode.appendChild(document.createElement('li').appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Utilities"
+                    } )).parentNode).parentNode).parentNode);
+                    menu.appendChild(document.createElement('li').appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Movies"
+                    } )).parentNode);
+
+                    menu.appendChild(document.createElement('li').appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Music"
+                    } )).parentNode.appendChild(document.createElement('ul').appendChild(document.createElement('li').appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Rock"
+                    } )).parentNode.appendChild(document.createElement('ul').appendChild(document.createElement('li').appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Alternative"
+                    } )).parentNode).parentNode.appendChild(document.createElement('li').appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Classics"
+                    } )).parentNode).parentNode).parentNode).parentNode.appendChild(document.createElement('li').appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Jazz"
+                    } )).parentNode.appendChild(document.createElement('ul').appendChild(document.createElement('li').appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Freejazz"
+                    } )).parentNode).parentNode.appendChild(document.createElement('li').appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Big Band"
+                    } )).parentNode).parentNode.appendChild(document.createElement('li').appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Modern"
+                    } )).parentNode).parentNode).parentNode).parentNode.appendChild(document.createElement('li').appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Pop"
+                    } )).parentNode).parentNode).parentNode);
+                    menu.appendChild(Bridge.merge(document.createElement('li'), {
+                        className: "ui-state-disabled"
+                    } ).appendChild(Bridge.merge(document.createElement('div'), {
+                        textContent: "Specials (n/a)"
+                    } )).parentNode);
+
+
+
+                    Bridge.jQueryUI.Widgets.Extensions.menu(menu);
+                    contendElement.appendChild(menu);
+                }
+
+
+                {
+                    contendElement.appendChild(Bridge.merge(document.createElement("h2"), {
+                        textContent: "Tooltip"
+                    } ));
+
+                    var para = document.createElement('p');
+                    var ttlink = Bridge.merge(document.createElement('a'), {
+                        href: "#",
+                        textContent: "Tooltips",
+                        title: "That's what this widget is"
+                    } );
+                    Bridge.jQueryUI.Widgets.Extensions.tooltip(ttlink);
+                    para.appendChild(ttlink);
+
+
+                    para.appendChild(document.createTextNode(" can be attached to any element. When you hover the element with your mouse, the title attribute is displayed in a little box next to the element, just like a native tooltip."));
+                    contendElement.appendChild(para);
+
+
+
+                }
+
+
+                {
+                    contendElement.appendChild(Bridge.merge(document.createElement("h2"), {
+                        textContent: "Highlight / Error"
+                    } ));
+                    var highlight = document.createElement('div');
+                    Bridge.jQueryUI.Messageboxes.highlight(highlight, "Hey!", " Sample ui-state-highlight style.");
+                    contendElement.appendChild(highlight);
+                    contendElement.appendChild(document.createElement('br'));
+                    var error = document.createElement('div');
+                    Bridge.jQueryUI.Messageboxes.error(error, "Hey!", "Sample ui-state-error style.");
+                    contendElement.appendChild(error);
+                }
+
+
+
+
                 Bridge.jQueryUI.Widgets.Extensions.dialog$1(contendElement, Bridge.jQueryUI.Widgets.DialogParameter.ctor({ buttons: System.Array.init([Bridge.jQueryUI.Widgets.DialogButton.ctor({ click: function () {
                     Bridge.jQueryUI.Widgets.Extensions.dialogClose(contendElement);
-                }, text: "Close" })], Bridge.jQueryUI.Widgets.DialogButton), height: 600, width: 900 }));
+                }, text: "Close" })], Bridge.jQueryUI.Widgets.DialogButton), height: 600, width: 900, title: "jQueryUi Demo Elements" }));
 
+
+            },
+            themeChanger: function () {
+                var $t;
+                var dialog = document.createElement('div');
+                var themes = System.Array.init(["base", "black-tie", "blitzer", "cupertino", "dark-hive", "dot-luv", "eggplant", "excite-bike", "flick", "hot-sneaks", "humanity", "le-frog", "mint-choc", "overcast", "pepper-grinder", "redmond", "smoothness", "south-street", "start", "sunny", "swanky-purse", "trontastic", "ui-darkness", "ui-lightness", "vader"], String);
+
+                var sel = document.createElement('select');
+                $t = Bridge.getEnumerator(themes);
+                while ($t.moveNext()) {
+                    var theme = $t.getCurrent();
+                    sel.appendChild(Bridge.merge(document.createElement('option'), {
+                        textContent: theme,
+                        value: theme
+                    } ));
+                }
+                dialog.appendChild(sel);
+                Bridge.jQueryUI.Widgets.Extensions.selectmenu$1(sel, Bridge.jQueryUI.Widgets.SelectmenuParameter.ctor({ appendTo: dialog }));
+                var btn = Bridge.merge(document.createElement('button'), {
+                    textContent: "OK"
+                } );
+                Bridge.jQueryUI.Widgets.Extensions.button(btn);
+                btn.onclick = function (ev) {
+                    var newTheme = sel.options[sel.selectedIndex].value;
+                    var theme1 = document.getElementById("uitheme");
+                    theme1.href = System.String.concat("../css/ui_themes/", newTheme, "/theme.css");
+                };
+                dialog.appendChild(btn);
+                Bridge.jQueryUI.Widgets.Extensions.dialog$1(dialog, Bridge.jQueryUI.Widgets.DialogParameter.ctor({ position: Bridge.merge(Bridge.jQueryUI.Common.Position.ctor(), {
+                    at: Bridge.jQueryUI.WindowPositions.center, my: Bridge.jQueryUI.WindowPositions.center
+                } ), title: "Themeroller", width: 400, height: 300 }));
 
             }
         },
@@ -407,7 +575,7 @@ Bridge.assembly("Test", function ($asm, globals) {
                 textContent: "Menu"
             } );
             Bridge.jQueryUI.Widgets.Extensions.button(Test.Demo._demoButton);
-            Test.Demo._demoButton.onclick = Bridge.fn.combine(Test.Demo._demoButton.onclick, $asm.$.Test.Demo.f4);
+            Test.Demo._demoButton.onclick = Bridge.fn.combine(Test.Demo._demoButton.onclick, $asm.$.Test.Demo.f5);
             document.body.appendChild(Test.Demo._demoButton);
         }
     });
@@ -419,11 +587,14 @@ Bridge.assembly("Test", function ($asm, globals) {
             Test.Demo.showDemo();
         },
         f2: function (ev) {
+            Test.Demo.themeChanger();
+        },
+        f3: function (ev) {
             Bridge.jQueryUI.Widgets.Extensions.dialog$1((Bridge.merge(document.createElement('div'), {
                 textContent: "Hello I am an dialog"
             } )), Bridge.jQueryUI.Widgets.DialogParameter.ctor({ title: "Dialog" }));
         },
-        f3: function (ev) {
+        f4: function (ev) {
             var dialogDiv = Bridge.merge(document.createElement('div'), {
                 textContent: "I am a modal dialog"
             } );
@@ -433,7 +604,7 @@ Bridge.assembly("Test", function ($asm, globals) {
                 Bridge.jQueryUI.Widgets.Extensions.dialogClose(dialogDiv);
             }, text: "Cancel" })], Bridge.jQueryUI.Widgets.DialogButton) }));
         },
-        f4: function (ev) {
+        f5: function (ev) {
             Test.Demo.showMenu();
         }
     });
