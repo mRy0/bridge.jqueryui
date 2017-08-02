@@ -21,3 +21,5 @@ myDiv.DialogOpen(new DialogParameter() {
     Position = Bridge.jQueryUI.Enums.WindowPosition.BottomRight
 });
 ```
+
+See Test/Demo.cs for full example
