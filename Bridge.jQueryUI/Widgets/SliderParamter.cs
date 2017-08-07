@@ -49,6 +49,7 @@ namespace Bridge.jQueryUI.Widgets
         {
             var jObj = this.ToDynamic();
             if (!Script.IsNaN(Animate)) jObj.animate = Animate.ToJsObject();
+            if (!Script.IsNaN(Classes)) jObj.classes = Classes.ToJsDynamic();
             if (!Script.IsNaN(Orientation)) jObj.orientation = Orientation.ToString();
             if (!Script.IsNaN(Range)) jObj.range = Range.ToString();
             return jObj;

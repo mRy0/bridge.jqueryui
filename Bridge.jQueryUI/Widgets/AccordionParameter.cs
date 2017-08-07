@@ -34,6 +34,7 @@ namespace Bridge.jQueryUI.Widgets
             else obj.active = Active;
 
             if (Animate != null) obj.animate = Animate.ToJsObject();
+            if (!Script.IsNaN(Classes)) obj.classes = Classes.ToJsDynamic();
 
             if (!Script.IsNaN(Event)) obj["event"] = Event.ToString();
 

@@ -16,7 +16,9 @@ namespace Bridge.jQueryUI.Widgets
 
         public object ToJsObject()
         {
-            return this.ToDynamic();
+            var jObj = this.ToDynamic();
+            if (!Script.IsNaN(Classes)) jObj.classes = Classes.ToJsDynamic();
+            return jObj;
         }
     }
 }

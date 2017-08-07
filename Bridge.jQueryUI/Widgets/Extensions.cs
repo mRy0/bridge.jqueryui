@@ -69,34 +69,39 @@ namespace Bridge.jQueryUI.Widgets
         
 
         #region dialog
-        public static void Dialog(this Bridge.Html5.Node node)
+        public static void Dialog(this Bridge.Html5.HTMLDivElement node)
         {
             new jQuery2.jQuery(node).ToDynamic().dialog();
         }
-        public static void Dialog(this Bridge.Html5.Node node, DialogParameter parameter)
+        public static void Dialog(this Bridge.Html5.HTMLDivElement node, DialogParameter parameter)
         {
             
             new jQuery2.jQuery(node).ToDynamic().dialog(parameter.ToJsObject());
         }
-        public static void Dialog(this Bridge.Html5.Node node, dynamic parameter)
+        public static void Dialog(this Bridge.Html5.HTMLDivElement node, dynamic parameter)
         {
             new jQuery2.jQuery(node).ToDynamic().dialog(parameter);
         }       
-        public static void DialogClose(this Bridge.Html5.Node node)
+        public static void DialogClose(this Bridge.Html5.HTMLDivElement node)
         {
             new jQuery2.jQuery(node).ToDynamic().dialog("close");
         }
-        public static void DialogDestroy(this Bridge.Html5.Node node)
+        public static void DialogDestroy(this Bridge.Html5.HTMLDivElement node)
         {
             new jQuery2.jQuery(node).ToDynamic().dialog("destroy");
         }
-        public static bool  DialogIsOpen(this Bridge.Html5.Node node)
+        public static bool  DialogIsOpen(this Bridge.Html5.HTMLDivElement node)
         {
             return new jQuery2.jQuery(node).ToDynamic().dialog("isOpen");
         }
-        public static void DialogMoveToTop(this Bridge.Html5.Node node)
+        public static void DialogMoveToTop(this Bridge.Html5.HTMLDivElement node)
         {
             new jQuery2.jQuery(node).ToDynamic().dialog("moveToTop");
+        }
+        public static void DialogEventResize(this Bridge.Html5.HTMLDivElement node, Action<jQuery2.jQueryEvent, DialogResizeEvent> ev)
+        {
+            new jQuery2.jQuery(node).ToDynamic().dialog(new { resize = ev });
+
         }
         #endregion
 

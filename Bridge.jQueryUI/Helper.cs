@@ -26,6 +26,19 @@ namespace Bridge.jQueryUI
     /// </summary>
     internal static class Helper
     {
+
+
+        public static object ToJsDynamic(this Common.ClassSelector[] selectors)
+        {
+            var rObj = (new object()).ToDynamic();
+            foreach(var selector in selectors)
+            {
+                rObj[selector.UIClassName] = selector.CustomClassName;
+            }
+            return rObj;
+        }
+
+
         //helper because enum in bridge is numeric
         //public static string GetJsEnumName (Type enumType, Enum value)
         //{

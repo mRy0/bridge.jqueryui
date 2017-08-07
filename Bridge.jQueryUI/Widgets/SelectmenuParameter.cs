@@ -21,6 +21,7 @@ namespace Bridge.jQueryUI.Widgets
         {
             var jObj = this.ToDynamic();
 
+            if (!Script.IsNaN(Classes)) jObj.classes = Classes.ToJsDynamic();
             if (AppendTo != null) jObj.appendTo = new jQuery2.jQuery(AppendTo);
             if (Position != null) { jObj.position = Position.ToJsObject(); }
 

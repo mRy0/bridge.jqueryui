@@ -24,6 +24,7 @@ namespace Bridge.jQueryUI.Widgets
         {
             var jObj = this.ToDynamic();
 
+            if (!Script.IsNaN(Classes)) jObj.classes = Classes.ToJsDynamic();
             if (!Script.IsNaN(Content)) jObj.content = new jQuery2.jQuery(Content);
             if (!Script.IsNaN(Hide)) jObj.hide = Hide.ToJsObject();
             if (!Script.IsNaN(Position)) jObj.position = Position.ToJsObject();

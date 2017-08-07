@@ -22,6 +22,7 @@ namespace Bridge.jQueryUI.Widgets
         public object ToJsObject()
         {
             var jObj = this.ToDynamic();
+            if (!Script.IsNaN(Classes)) jObj.classes = Classes.ToJsDynamic();
 
             if (!Script.IsNaN(Icon)) jObj.icon = Icon.ToString();
             if (!Script.IsNaN(Position)) jObj.position = Position.ToJsObject();

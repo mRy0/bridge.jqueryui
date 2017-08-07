@@ -12,10 +12,6 @@ namespace Bridge.jQueryUI.Common
     {
         public string UIClassName { set; get; }
         public string CustomClassName { set; get; }
-        
-        public override dynamic ToDynamic()
-        {
-            return new { UIClassName = CustomClassName };
-        }
+           
     }
 }

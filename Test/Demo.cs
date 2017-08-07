@@ -43,8 +43,12 @@ namespace Test
             var themes = new HTMLButtonElement() { TextContent = "Themes" };
             themes.Button();
             themes.OnClick += (ev) => ThemeChanger();
-
             myDiv.AppendChild(themes);
+
+            var dtable = new HTMLButtonElement() { TextContent = "Datatable" };
+            dtable.Button();
+            dtable.OnClick += (ev) => TableDemo.ShowTableDemo();
+            myDiv.AppendChild(dtable);
         }
 
         //show the default jquery ui demo

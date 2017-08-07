@@ -9,7 +9,7 @@ namespace Bridge.jQueryUI.Widgets
     [ObjectLiteral]
     public class ButtonParameter
     {
-        public Common.ClassSelector Classes { set; get; }
+        public Common.ClassSelector[] Classes { set; get; }
         public bool Disabled { set; get; }
         public string Icon { set; get; }
         public IconPositons IconPosition { set; get; }
@@ -19,6 +19,7 @@ namespace Bridge.jQueryUI.Widgets
         public object ToJsObject()
         {
             var jObj = this.ToDynamic();
+            if (!Script.IsNaN(Classes)) jObj.classes = Classes.ToJsDynamic();
             if (!Script.IsNaN(IconPosition)) jObj.iconPosition = IconPosition.ToString();
             return jObj;
         }
